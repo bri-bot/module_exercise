@@ -9,10 +9,10 @@
 ###################################
 ######    EXAMPLE MODULE      #####
 ###################################
+#Use if you think your class name could conflict with anything else
 
-  #
   # module Perimeter
-  #   class Array
+  #   class Array #Module allows us to use class Array without overriding default/Ruby array class
   #     def initialize
   #       @size = 400
   #     end
@@ -26,8 +26,6 @@
   # p ruby_array.class
   #
   # p our_array.length
-
-
 
 
 
@@ -55,11 +53,11 @@
 #https://github.com/kqdreger/traveller
 
 #Testing out the traveller gem!
-
+  #
   # require 'traveller'
   #
-  # trav = Traveller.new("Seattle, Minnesota 98101")
-
+  # traveller1 = Traveller.new("Seattle, Minnesota 98101")
+  #
   # puts traveller1.city
   # puts traveller1.zip
   #
@@ -73,18 +71,21 @@
 ###################################
 
 #I want to create a new class for travellers, called traveller. What could possibly go wrong?
-  # class Traveller
-  #   attr_accessor :name, :email, :city, :state
-  #   def initialize(details_hash)
-  #     @name = details_hash[:name]
-  #     @email = details_hash[:email]
-  #     @location = Traveller.new(details_hash[:location])
-  #   end
-  # end
 
-  #Tests to use the Traveller Gem (after my class has been created. )
-    # traveller2 = Traveller.new("Chicago 60611 IL")
-    # puts Traveller.state
+# module Expedia
+#   class Traveller
+#     attr_accessor :name, :email, :city, :state
+#     def initialize(details_hash)
+#       @name = details_hash[:name]
+#       @email = details_hash[:email]
+#       @location = Traveller.new(details_hash[:location])
+#     end
+#   end
+#
+#   #Tests to use the Traveller Gem (after my class has been created. )
+#     traveller2 = Traveller.new("Chicago 60611 IL")
+#     # puts Traveller.state
+#     user1 = Expedia::Traveller.new(name: "name", email: "email", location: "Seattle, Washington")
 
   #Hmm. It doesn't work. Oh bother.
   #How would we possibly fix this so I don't have to change the name of MY class but still be able to use this gem?
@@ -108,10 +109,11 @@
 
   # Constants may be added to existing classes and modules from the outside by using the class or module name and the scope operator before the constant name.
 
-
-
+      #
+      #
       #   module Blackjack
       #     MAX_SCORE = 21
+      #
       #     module Player
       #         MAX_PLAYERS = 2
       #         class Player
@@ -119,6 +121,7 @@
       #           end
       #         end
       #     end
+      #
       #     module Card
       #         MAX_VALUE = 13
       #         class Card
@@ -127,7 +130,8 @@
       #           end
       #         end
       #     end
-      # end
+      #
+      #   end
       #
       # MAX_SCORE = 50
       # MAX_PLAYERS = 4
@@ -144,4 +148,4 @@
       # puts
       #
       # puts "MAX_VALUE - #{MAX_VALUE}"
-      # puts "Blackjack::Card::get_max_value -  #{Blackjack::Card::Card.new().get_max_value()}"`
+      # puts "Blackjack::Card::get_max_value -  #{Blackjack::Card::Card.new().get_max_value()}"
